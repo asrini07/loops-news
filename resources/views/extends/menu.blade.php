@@ -7,7 +7,16 @@
         <a href="{{ url('login') }}" class="nav-link active"><i class="fe fe-file-text"></i> Login</a>
     </li>
     <li class="nav-item">
-        <a href="{{ url('post') }}" class="nav-link active"><i class="fe fe-file-text"></i> Post</a>
+        <a href="{{ url('post') }}" class="nav-link active"><i class="fe fe-file-text"></i> All Post</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ url('post/email') }}" class="nav-link active"><i class="fe fe-file-text"></i> Post with Email</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ url('user/comment') }}" class="nav-link active"><i class="fe fe-file-text"></i> User with Comment</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ url('user/comment-guest') }}" class="nav-link active"><i class="fe fe-file-text"></i> Comment with Guest</a>
     </li>
 </ul>
 @else
@@ -19,7 +28,16 @@
         <a href="{{ url('/post-user') }}" class="nav-link @if ($tabmenu == 'post-user' ) {{ 'active' }} @else {{ '' }} @endif"><i class="fe fe-file-text"></i>My Post</a>
     </li>
     <li class="nav-item">
-        <a href="{{ url('post') }}" class="nav-link @if ($tabmenu == 'post' ) {{ 'active' }} @else {{ '' }} @endif"><i class="fe fe-file-text"></i> Post</a>
+        <a href="{{ url('post') }}" class="nav-link active"><i class="fe fe-file-text"></i> All Post</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ url('post/email') }}" class="nav-link active"><i class="fe fe-file-text"></i> Post with Email</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ url('user/comment') }}" class="nav-link active"><i class="fe fe-file-text"></i> User with Comment</a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ url('user/comment-guest') }}" class="nav-link active"><i class="fe fe-file-text"></i> Comment with Guest</a>
     </li>
 </ul>
 @endguest
