@@ -17,7 +17,7 @@ class PostController extends Controller
         $judul     = "Pengguna";
         $tabmenu = "post-user";
         $search = $request->name;
-        $data = Post::all();
+        $data = Post::where('user_id', \Auth::user()->id);
     
         return view('pages/post/post', compact('judul', 'tabmenu', 'data', 'search'));
     }
