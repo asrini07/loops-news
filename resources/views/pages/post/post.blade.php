@@ -35,7 +35,7 @@
                             @foreach($data as $d)
                                 <tr>
                                     <td>{{ $d['title'] }}</td>
-                                    <td>{{ $d['content'] }}</td>
+                                    <td>{{ substr($d['content'], 0, 70)  }}...</td>
                                     <td>
                                         <a class="icon btn btn-outline-warning" href="{{ route('edit-post', $d['id']) }}">
                                             <i class="fe fe-edit"></i>
@@ -43,8 +43,7 @@
                                         <a class="delete icon btn btn-outline-danger" data-href="{{ route('destroy-post', $d['id']) }}">
                                             <i class="fe fe-trash-2"></i>
                                         </a>
-                                    </td>
-                                    
+                                    </td>   
                                 </tr>
                                 @endforeach
                         </tbody>

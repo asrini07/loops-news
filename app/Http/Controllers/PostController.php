@@ -14,11 +14,13 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
+       
         $judul     = "Pengguna";
         $tabmenu = "post-user";
         $search = $request->name;
-        $data = Post::where('user_id', \Auth::user()->id);
-    
+        
+        $data = Post::where('user_id', \Auth::user()->id)->get();
+       
         return view('pages/post/post', compact('judul', 'tabmenu', 'data', 'search'));
     }
 
@@ -61,10 +63,10 @@ class PostController extends Controller
             $store->save();
 
         } catch (\Error $e) {
-            return \Redirect::to("/post-user")->with('err_msg', 'Gagal menambah data Pengguna');
+            return \Redirect::to("/post-user")->with('err_msg', 'Gagal menambah data Post');
         }
 
-        return \Redirect::to("/post-user")->with('sc_msg', 'Berhasil menambah data Pengguna');
+        return \Redirect::to("/post-user")->with('sc_msg', 'Berhasil menambah data Post');
 
     }
 
@@ -120,10 +122,10 @@ class PostController extends Controller
             $data->save();
 
         } catch (\Error $e) {
-            return \Redirect::to("/post-user")->with('err_msg', 'Gagal menambah data Pengguna');
+            return \Redirect::to("/post-user")->with('err_msg', 'Gagal menambah data Post');
         }
 
-        return \Redirect::to("/post-user")->with('sc_msg', 'Berhasil menambah data Pengguna');
+        return \Redirect::to("/post-user")->with('sc_msg', 'Berhasil menambah data Post');
 
     }
 
