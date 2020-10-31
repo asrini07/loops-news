@@ -23,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //return view('home');
         $tabmenu     = "dashboard";
         return view('pages/dashboard', compact('tabmenu'));
     }

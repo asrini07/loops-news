@@ -11,47 +11,42 @@ class PortalController extends Controller
 {
     public function index()
     {
-        //return view('pages.portal');
+
         $judul     = "Dashboard";
         $tabmenu     = "home";
         return view('pages/portal', compact('judul'));
+        
     }
 
     public function postAll()
     {
-        //return view('pages.portal');
+
         $judul     = "Dashboard";
         $tabmenu     = "all-post";
         $data = Post::select('posts.*', 'users.email', 'users.name')
                     ->leftJoin('users', 'users.id', '=', 'posts.user_id')
                     ->get();
-        //$data = Post::all();
-        //dd($data->user());
+
         return view('pages/post_all', compact('judul', 'tabmenu', 'data'));
+
     }
 
     public function postDetail($slug){
+
         $judul     = "Dashboard";
         $tabmenu     = "all-post";
+
         $data = Post::select('posts.*', 'users.email', 'users.name')
                     ->leftJoin('users', 'users.id', '=', 'posts.user_id')
                     ->where('posts.slug', $slug)
                     ->first();
+
         return view('pages/post_detail', compact('judul', 'tabmenu', 'data'));
+
     }
 
     public function postEmal(){
-        // $data = User::find(1);
-        // $data_post = $data->posts()->get();
 
-        // foreach ($data_post as $key => $value) {
-        //     $val[] = [
-        //         'name' => $value->user->name,
-        //         'title' => $value->title
-        //     ];
-        // }
-        // dd($val);
-        // dd('Content Post dengan email, name penulisnya');
         $judul     = "Dashboard";
         $tabmenu   = "post-email";
 
@@ -64,7 +59,7 @@ class PortalController extends Controller
     }
 
     public function userComment(){
-        //dd('User List dengan comment dari usernya');
+
         $judul     = "Dashboard";
         $tabmenu   = "user-comment";
 
@@ -73,9 +68,11 @@ class PortalController extends Controller
                     ->get();
 
         return view('pages/user_comment', compact('judul', 'tabmenu', 'data'));
+
     }
 
     public function userCommentGuest(){
+
         $judul     = "Dashboard";
         $tabmenu   = "guest-comment";
 
@@ -85,5 +82,33 @@ class PortalController extends Controller
                     ->get();
                     
         return view('pages/guest_comment', compact('judul', 'tabmenu', 'data'));
+
+    }
+
+    public function storeComment(Request $request, $id) {
+
+        \Validator::make($request->all(), [
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'comment' => 'required',
+            'website' => 'required',
+        ])->validate();
+
+        try {
+            
+            $store = new Comment;
+            $store->post_id = $id;
+            $store->name = $request->name;
+            $store->email = $request->email;
+            $store->website = $request->website;
+            $store->comment = $request->comment;
+            $store->save();
+
+        } catch (\Error $e) {
+            return \Redirect::to("/post/detail/".$id)->with('err_msg', 'Gagal menambah data Comment');
+        }
+
+        return \Redirect::to("/post/detail/".$id)->with('sc_msg', 'Berhasil menambah data Comment');
+
     }
 }

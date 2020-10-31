@@ -33,8 +33,6 @@ class PostController extends Controller
     {
         $judul     = "Pengguna";
         $tabmenu = "post-user";
-        // $search = $request->name;
-        // $data = Post::all();
     
         return view('pages/post/create', compact('judul', 'tabmenu'));
     }
@@ -91,7 +89,6 @@ class PostController extends Controller
     {
         $judul     = "Pengguna";
         $tabmenu = "post-user";
-        // $search = $request->name;
         $data = Post::find($id);
     
         return view('pages/post/edit', compact('judul', 'tabmenu', 'data'));
