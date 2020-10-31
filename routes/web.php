@@ -11,12 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//     //return view('layouts.template');
-// });
+Route::get('/', function () {
+    return \Redirect::to('/post');
+});
 
-Route::get('/', 'PortalController@index')->name('home'); 
-Route::get('/post', 'PortalController@post')->name('post');
+//Route::get('/', 'PortalController@index')->name('home'); 
 
 Auth::routes();
 
@@ -30,3 +29,10 @@ Route::group(['prefix' => 'post-user'], function(){
     Route::post('/update/{id}','PostController@update')->name('update-post');
     Route::get('/delete/{id}','PostController@destroy')->name('destroy-post');
 });
+
+Route::get('/post', 'PortalController@postAll')->name('post-all');
+Route::get('/post/detail/{id}', 'PortalController@postDetail')->name('post-detail');
+Route::post('/comment/store/{id}',"PortalController@storeComment")->name('store-comment');
+Route::get('/post/email', 'PortalController@postEmal')->name('post-email');
+Route::get('/user/comment', 'PortalController@userComment')->name('user-comment');
+Route::get('/user/comment-guest', 'PortalController@userCommentGuest')->name('user-comment-guest');
