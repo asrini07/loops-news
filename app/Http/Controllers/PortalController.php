@@ -53,10 +53,9 @@ class PortalController extends Controller
         $tabmenu   = "post-email";
 
         $data = Post::select('posts.*', 'users.email', 'users.name')
-                    ->with(['user'])
+                    ->with(['user', 'comment'])
                     ->leftJoin('users', 'users.id', '=', 'posts.user_id')
                     ->get();
-
         return view('pages/post_email', compact('judul', 'tabmenu', 'data'));
 
     }
