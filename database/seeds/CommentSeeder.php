@@ -28,6 +28,41 @@ class CommentSeeder extends Seeder
                 "email" => 'admin@gmail.com',
                 "website" => 'https://www.w3schools.com/css/default.asp',
                 "comment" => 'HTML is the standard markup language for Web pages.With HTML you can create your own Website.HTML is easy to learn - You will enjoy it!',
+            ],
+            [
+                "post_id" => 2,
+                "name" => 'HTML',
+                "email" => 'admin@gmail.com',
+                "website" => 'https://www.w3schools.com/css/default.asp',
+                "comment" => 'HTML is the standard markup language for Web pages.With HTML you can create your own Website.HTML is easy to learn - You will enjoy it!',
+            ],
+            [
+                "post_id" => 2,
+                "name" => 'HTML',
+                "email" => 'admin@gmail.com',
+                "website" => 'https://www.w3schools.com/css/default.asp',
+                "comment" => 'HTML is the standard markup language for Web pages.With HTML you can create your own Website.HTML is easy to learn - You will enjoy it!',
+            ],
+            [
+                "post_id" => 2,
+                "name" => 'HTML',
+                "email" => 'admin@gmail.com',
+                "website" => 'https://www.w3schools.com/css/default.asp',
+                "comment" => 'HTML is the standard markup language for Web pages.With HTML you can create your own Website.HTML is easy to learn - You will enjoy it!',
+            ],
+            [
+                "post_id" => 3,
+                "name" => 'HTML',
+                "email" => 'admin@gmail.com',
+                "website" => 'https://www.w3schools.com/css/default.asp',
+                "comment" => 'HTML is the standard markup language for Web pages.With HTML you can create your own Website.HTML is easy to learn - You will enjoy it!',
+            ],
+            [
+                "post_id" => 3,
+                "name" => 'HTML',
+                "email" => 'admin@gmail.com',
+                "website" => 'https://www.w3schools.com/css/default.asp',
+                "comment" => 'HTML is the standard markup language for Web pages.With HTML you can create your own Website.HTML is easy to learn - You will enjoy it!',
             ]
         ]);
     }
