@@ -24,6 +24,7 @@ class PortalController extends Controller
         $judul     = "Dashboard";
         $tabmenu     = "all-post";
         $data = Post::select('posts.*', 'users.email', 'users.name')
+                    ->with(['user'])
                     ->leftJoin('users', 'users.id', '=', 'posts.user_id')
                     ->get();
 
@@ -37,6 +38,7 @@ class PortalController extends Controller
         $tabmenu     = "all-post";
 
         $data = Post::select('posts.*', 'users.email', 'users.name')
+                    ->with(['user'])
                     ->leftJoin('users', 'users.id', '=', 'posts.user_id')
                     ->where('posts.slug', $slug)
                     ->first();
@@ -51,6 +53,7 @@ class PortalController extends Controller
         $tabmenu   = "post-email";
 
         $data = Post::select('posts.*', 'users.email', 'users.name')
+                    ->with(['user'])
                     ->leftJoin('users', 'users.id', '=', 'posts.user_id')
                     ->get();
 
